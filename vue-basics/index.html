@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +7,23 @@
   <title>Basic Data-binding</title>
 </head>
 <body>
-  <input id="input" type="text">
-
+  <div id="root">
+    <input id="input" type="text" v-model="message">
+    <p> The value of the input is: {{ message }}.</p>
+  </div>
   <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
 
   <script>
-    let data = {
-      message: 'Hello World'
-    };
-
     /* Traditional mode to set value data on input */
-    document.querySelector('#input').value = data.message;
+    // document.querySelector('#input').value = data.message;
+
+    new Vue({
+      el: '#root',
+      data: {
+        message: 'Hello World'
+      }
+    });
+
   </script>
 
 </body>
