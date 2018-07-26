@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Basic Attribute and Class Name Binding</title>
+</head>
+<body>
+  <style>
+    .is-loading {
+      color: red;
+    }
+  </style>
+  <div id="root">
+    <button :class="{ 'is-loading': isLoading }" @click="toggleClass">Toggle Me</button>
+  </div>
+
+  <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#root',
+      data: {
+        isLoading: false
+      },
+      methods: {
+        toggleClass() {
+          this.isLoading = true;
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
