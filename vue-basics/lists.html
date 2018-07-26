@@ -8,16 +8,31 @@
 </head>
 <body>
   <div id="root">
+    <ul>
+      <li v-for="name in names" v-text="name"></li>
+    </ul>
+
+    <input id="input" type="text">
+    <button id="button">Add Name</button>
   </div>
 
   <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
   <script>
-    new Vue({
+    var app = new Vue({
       el: '#root',
       data: {
-
+        names : ['William', 'Tony', 'Renan', 'Mylena', 'Maria']
       }
     });
+
+    /* Add new item on list/array on traditional mode */
+    document.querySelector('#button').addEventListener('click', () => {
+      let name = document.querySelector('#input')
+      app.names.push( name.value )
+
+      /* Clean input */
+      name.value = ''
+    })
   </script>
 
 </body>
